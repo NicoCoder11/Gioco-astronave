@@ -20,7 +20,7 @@ VELOCITA_OGGETTI = 9
 
 punteggio = 0
 prossimo_aumento = 10
-probabilita_generazione = 15
+probabilita_generazione = 13
 
 schermo = pygame.display.set_mode((LARGHEZZA_SCHERMO, ALTEZZA_SCHERMO))
 pygame.display.set_caption("Avventura nello spazio!")
