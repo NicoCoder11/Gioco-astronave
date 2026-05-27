@@ -3,24 +3,29 @@ import random
 import os
 
 pygame.init()
+
 # COSTANTI PER LA CREAZIONE DELLO SCHERMO
 BARBO=0
 LARGHEZZA_SCHERMO = 1000
 ALTEZZA_SCHERMO = 800
 COLORE_SFONDO = (19, 19, 70)
+
 #COSTANTI GIOCATORE
 DIMENSIONE_GIOCATORE = 20
 posizione_giocatore_x = 400
 posizione_giocatore_y = 520
 VELOCITA_GIOCATORE = 10
+
 #COSTANTI OGGETTI
 DIMENSIONE_OGGETTO = 15
 lista_oggetti = []
 VELOCITA_OGGETTI = 9
+
 #COSTANTI PER IL PUNTEGGIO
 punteggio = 0
 prossimo_aumento = 10
 probabilita_generazione = 15
+
 #VARIABILI PER LA GENERAZIONE FINESTRA E ELEMENTI 
 schermo = pygame.display.set_mode((LARGHEZZA_SCHERMO, ALTEZZA_SCHERMO))
 pygame.display.set_caption("Avventura nello spazio!")
@@ -29,6 +34,7 @@ font = pygame.font.SysFont(None, 36)
 
 base = os.path.dirname(__file__)
 
+#CARICAMENTO IMMAGINI
 immagine_astronave = pygame.image.load(os.path.join(base, "astronave.jpg"))
 immagine_oggetto = pygame.image.load(os.path.join(base, "meteorite.jpg"))
 
@@ -45,7 +51,7 @@ def disegna():
 
     pygame.display.update()
 
-
+#SISTEMA GENERAZIONE METEOTITI
 def genera():
     global probabilita_generazione
 
@@ -53,7 +59,7 @@ def genera():
         x = random.randint(0, LARGHEZZA_SCHERMO - DIMENSIONE_OGGETTO)
         lista_oggetti.append([x, 0])
 
-#FUNZIONE PER SCORRERE GLI OGGETTI E SCORRERE LO SCHERMO 
+#FUNZIONE PER SCORRERE GLI OGGETTI E AUMENTARE IL PUNTEGGIO
 def aggiorna():
     global lista_oggetti, punteggio, VELOCITA_OGGETTI
     global prossimo_aumento, probabilita_generazione
@@ -87,6 +93,7 @@ def collisione():
 
 running = True
 clock = pygame.time.Clock()
+
 #FUNZIONI MOVIMENTO GIOCATORE
 while running:
 
