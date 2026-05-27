@@ -8,20 +8,20 @@ BARBO=0
 LARGHEZZA_SCHERMO = 1000
 ALTEZZA_SCHERMO = 800
 COLORE_SFONDO = (19, 19, 70)
-
+#COSTANTI GIOCATORE
 DIMENSIONE_GIOCATORE = 20
 posizione_giocatore_x = 400
 posizione_giocatore_y = 520
 VELOCITA_GIOCATORE = 10
-
+#COSTANTI OGGETTI
 DIMENSIONE_OGGETTO = 15
 lista_oggetti = []
 VELOCITA_OGGETTI = 9
-
+#COSTANTI PER IL PUNTEGGIO
 punteggio = 0
 prossimo_aumento = 10
-probabilita_generazione = 13
-
+probabilita_generazione = 15
+#VARIABILI PER LA GENERAZIONE FINESTRA E ELEMENTI 
 schermo = pygame.display.set_mode((LARGHEZZA_SCHERMO, ALTEZZA_SCHERMO))
 pygame.display.set_caption("Avventura nello spazio!")
 
@@ -53,7 +53,7 @@ def genera():
         x = random.randint(0, LARGHEZZA_SCHERMO - DIMENSIONE_OGGETTO)
         lista_oggetti.append([x, 0])
 
-
+#FUNZIONE PER SCORRERE GLI OGGETTI E SCORRERE LO SCHERMO 
 def aggiorna():
     global lista_oggetti, punteggio, VELOCITA_OGGETTI
     global prossimo_aumento, probabilita_generazione
@@ -70,7 +70,7 @@ def aggiorna():
 
     lista_oggetti = nuovi
 
-
+#FUNZIONE COLLISIONE PER VERIFICARE SE L'ASTRONAVE HA COLPITO UN OGGETTO, IN CASO AFFERMATIVO IL GIOCO FINISCE 
 def collisione():
     global running
 
@@ -87,7 +87,7 @@ def collisione():
 
 running = True
 clock = pygame.time.Clock()
-
+#FUNZIONI MOVIMENTO GIOCATORE
 while running:
 
     for event in pygame.event.get():
