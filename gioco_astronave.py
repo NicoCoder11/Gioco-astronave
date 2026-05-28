@@ -18,7 +18,7 @@ posizione_giocatore_y = 520
 VELOCITA_GIOCATORE = 10
 
 #COSTANTI OGGETTI
-DIMENSIONE_OGGETTO = 15
+DIMENSIONE_OGGETTO = 15 #⚠️1° bug: sistemare hitbox⚠️
 lista_oggetti = []
 VELOCITA_OGGETTI = 9
 
